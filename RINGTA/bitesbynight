@@ -1,1 +1,175 @@
+local Translations = {
+["RINGTA SCRIPTS"] = "RINGTA脚本<font color='#33FFEE'>Y</font><font color='#33EEFF'>i</font><font color='#33DDFF'>r</font><font color='#33CCFF'>d</font><font color='#33BBFF'>e</font><font color='#33AAFF'>X</font><font color='#3399FF'>汉</font><font color='#3388FF'>化</font>",
+["RINGTA and BUBLIK6241"] = "RINGTA 和 BUBLIK6241",
+["Home"] = "主页",
+["Open UI IN PC"] = "在电脑端打开界面",
+["PRESS G in your keyboard to open the ui in pc if it disappears when minimizing the ui"] = "如果界面在最小化后消失，按键盘上的 G 键在电脑端重新打开",
+["Members"] = "成员",
+["Online"] = "在线",
+["Discord"] = "Discord",
+["Youtube"] = "Youtube",
+["Open RINGTA SCRIPTS"] = "打开 RINGTA 脚本",
+["Window"] = "窗口",
+["Theme"] = "主题",
+["Valentine"] = "情人节",
+["Transparency"] = "透明度",
+["CONTENT CREATOR"] = "内容创作者",
+["If you upload a video on this script and dm ringta in discord you will get the content creator role and your video will be published in a showcase channel which can get you free views + you get access to 2 cool private channels the video DOES NOT HAVE TO GET ALOT OF VIEWS AND YOU don't need a lot of subs just make a good video and put some effort in and your good (:"] = "如果你发布了使用此脚本的视频并在 Discord 私信 ringta，你将获得内容创作者身份，你的视频会在展示频道发布以获得免费播放量，还能访问 2 个私密频道。视频无需高播放量，也无需大量订阅者，只要用心制作优质视频即可",
+["EXECUTOR INFO"] = "执行器信息",
+["IF YOUR GONNA USE A executor i recommend using delta as its basically the best mobile executor there is and if your using pc which is pretty sketchy since their all pretty sketchy a good free one would be velocity some features in xeno might not work."] = "如果你要用执行器，推荐使用 delta，它是目前最好的移动端执行器；PC 端的执行器大多不太稳定，推荐免费的 velocity，xeno 的部分功能可能无法使用",
+["Features"] = "功能",
+["Killer"] = "杀手",
+["Auto Swing"] = "自动攻击",
+["Automatically fires M1 attack when a survivor is within range."] = "当幸存者进入范围时自动发动 M1 攻击",
+["Auto Swing Range (studs)"] = "自动攻击范围（格）",
+["Distance from a survivor that triggers auto swing."] = "触发自动攻击的与幸存者的距离",
+["Anti Confusion on Security Guard Class"] = "防保安角色混乱",
+["When the Security Guard Class tases you your movement direction is never reversed."] = "被保安角色电击时，移动方向不会反转",
+["Defense"] = "防御",
+["Auto Block"] = "自动格挡",
+["Automatically fires your E Block thing and auto blocks when killer is about to hit (BETA)"] = "杀手即将攻击时自动使用 E 键格挡（测试版）",
+["Auto Block Range (studs)"] = "自动格挡范围（格）",
+["Only blocks if the killer is within this distance."] = "仅当杀手在此范围内时才会格挡",
+["Aimbot — Killer Focus"] = "瞄准辅助 - 锁定杀手",
+["Automatically locks your camera onto the active killer so you can always see them."] = "自动将视角锁定在当前杀手身上，始终可见",
+["Block Camera Shake"] = "屏蔽镜头抖动",
+["Prevents camera shake effect"] = "防止镜头抖动效果",
+["Block Killer Invisibility"] = "屏蔽杀手隐身",
+["Blocks killer from turning invisible"] = "阻止杀手进入隐身状态",
+["Block Screen Effects"] = "屏蔽屏幕效果",
+["Blocks killer screen distortions, blur, color shifts and blind effects."] = "屏蔽杀手造成的屏幕扭曲、模糊、色彩偏移和致盲效果",
+["Anti Ragdoll"] = "防布娃娃效果",
+["Removes the Ragdoll so you can never be knocked down."] = "移除布娃娃效果，不会被击倒",
+["Auto Escape"] = "自动逃生",
+["Automatically teleports you to an open exit when you can escape."] = "可逃生时自动传送到已开启的出口",
+["Auto Barricade"] = "自动封门",
+["Forces the barricading minigame dot to always stay in the center for a perfect barricade."] = "让封门小游戏的点始终保持在中心，实现完美封门",
+["Killer Distance HUD"] = "杀手距离 HUD",
+["Shows live killer distance on screen and alerts you when they get within range."] = "在屏幕上实时显示杀手距离，进入范围时发出警报",
+["Proximity Alert Range (studs)"] = "距离警报范围（格）",
+["Distance that triggers the on-screen red alert."] = "触发屏幕红色警报的距离",
+["Movement"] = "移动",
+["Anti Slide After Stop"] = "停止后无滑动",
+["you stop instantly with zero slide when you like stop running when turning a corner or something."] = "转弯或停止奔跑时立即停下，无滑动",
+["Infinite Stamina"] = "无限体力",
+["Automatically maintains your walk speed so your stamina never drains."] = "自动保持移动速度，体力永不消耗",
+["Noclip"] = "穿墙模式",
+["Disables collision on your character so you can walk through solid walls."] = "禁用角色碰撞，可穿过实体墙壁",
+["Tasks"] = "任务",
+["THIS TAB HAS ALOT OF BAN RISK"] = "此标签页有较高封号风险",
+["ALOT OF THESE FEATURES CAN LEAD TO BAN BE CAREFUL WHILE USING THESE FEATURES AND IF YOUR WORRIED ABOUT A BAN DONT USE THESE FEATURES OR USE AN ALT ACCOUNT."] = "这些功能大多可能导致封号，使用时请谨慎；如果担心封号，请勿使用或使用小号",
+["Generator Auto-Repair Delay"] = "发电机自动修理延迟",
+["Delay per remote call (seconds)"] = "每次远程操作的延迟（秒）",
+["Auto-Repair Generators"] = "自动修理发电机",
+["Automatically triggers and completes the generator mini game."] = "自动触发并完成发电机修理小游戏",
+["Visuals"] = "视觉",
+["Door ESP"] = "门 ESP",
+["Toggle ESP for all doors."] = "开启所有门的 ESP",
+["Door ESP Color"] = "门 ESP 颜色",
+["Enable Door ESP"] = "启用门 ESP",
+["Door Barricade Color"] = "已封门颜色",
+["Exit ESP"] = "出口 ESP",
+["Toggle ESP for exit points."] = "开启出口点的 ESP",
+["Exit ESP Color"] = "出口 ESP 颜色",
+["Enable Exit ESP"] = "启用出口 ESP",
+["Battery ESP"] = "电池 ESP",
+["Toggle ESP for batteries."] = "开启电池的 ESP",
+["Battery ESP Color"] = "电池 ESP 颜色",
+["Enable Battery ESP"] = "启用电池 ESP",
+["FuseBox ESP"] = "保险丝盒 ESP",
+["Toggle ESP for fuse boxes."] = "开启保险丝盒的 ESP",
+["FuseBox ESP Color"] = "保险丝盒 ESP 颜色",
+["Enable FuseBox ESP"] = "启用保险丝盒 ESP",
+["Killer ESP"] = "杀手 ESP",
+["Toggle ESP for the killer."] = "开启杀手的 ESP",
+["Killer ESP Color"] = "杀手 ESP 颜色",
+["Enable Killer ESP"] = "启用杀手 ESP",
+["Generator ESP"] = "发电机 ESP",
+["Toggle ESP for all generators."] = "开启所有发电机的 ESP",
+["Generator ESP Color"] = "发电机 ESP 颜色",
+["Enable Generator ESP"] = "启用发电机 ESP",
+["Beartrap ESP"] = "捕熊夹 ESP",
+["Highlights all active beartraps placed by the killer."] = "高亮显示杀手放置的所有捕熊夹",
+["Beartrap ESP Color"] = "捕熊夹 ESP 颜色",
+["Enable Beartrap ESP"] = "启用捕熊夹 ESP",
+["Ennard Minions ESP"] = "埃纳德仆从 ESP",
+["Highlights all active Ennard minions."] = "高亮显示所有埃纳德仆从",
+["Minions ESP Color"] = "仆从 ESP 颜色",
+["Enable Minions ESP"] = "启用仆从 ESP",
+["Hitbox Viewer"] = "碰撞箱查看器",
+["Enables hitboxes shows all collision hitboxes added to the world."] = "启用碰撞箱显示，查看场景中所有碰撞箱",
+["Full Brightness"] = "全亮度",
+["Removes all shadows and fog."] = "移除所有阴影和雾气",
+["Stamina ESP"] = "体力 ESP",
+["Shows a stamina bar above every survivor and killer in the match."] = "在游戏中所有幸存者和杀手头顶显示体力条",
+["Health ESP"] = "生命值 ESP",
+["Shows a health bar above every survivor and killer in the match."] = "在游戏中所有幸存者和杀手头顶显示生命值条",
+["Survivor ESP"] = "幸存者 ESP",
+["Toggle ESP for all survivors."] = "开启所有幸存者的 ESP",
+["Survivor ESP Color"] = "幸存者 ESP 颜色",
+["Enable Survivor ESP"] = "启用幸存者 ESP",
+["Emotes"] = "表情动作",
+["Emote Player"] = "表情播放器",
+["Select an emote from the dropdown then toggle Play Emote."] = "从下拉菜单选择表情，然后开启播放表情",
+["Select Emote"] = "选择表情",
+["Scans ReplicatedStorage.Modules.Emotes for available animations."] = "扫描 ReplicatedStorage.Modules.Emotes 中的可用动画",
+["Refresh Emote List"] = "刷新表情列表",
+["Re-scans the Emotes folder and updates the dropdown."] = "重新扫描表情文件夹并更新下拉菜单",
+["Play Emote"] = "播放表情",
+["Plays the selected emote animation and any associated sounds, particles, or prop meshes."] = "播放选中的表情动画及相关音效、粒子效果或道具模型",
+["Other"] = "其他",
+["Auto Unstun"] = "自动解控",
+["Clears Stun, kill animation locks."] = "解除眩晕和击杀动画锁定",
+["Stun Alert"] = "眩晕警报",
+["Notifies you the instant your character gets stunned or movement-locked."] = "角色被眩晕或移动锁定时立即发出通知"
+}
 
+local keys = {}
+for k in pairs(Translations) do
+    table.insert(keys, k)
+end
+table.sort(
+    keys,
+    function(a, b)
+        return #a > #b
+    end
+)
+
+local function safeReplace(text, old, new)
+    local result = ""
+    local start = 1
+    while true do
+        local i, j = string.find(text, old, start, true)
+        if not i then
+            result = result .. string.sub(text, start)
+            break
+        end
+        result = result .. string.sub(text, start, i - 1) .. new
+        start = j + 1
+    end
+    return result
+end
+
+local function translateText(text)
+    if not text or type(text) ~= "string" then
+        return text
+    end
+    for _, k in ipairs(keys) do
+        text = safeReplace(text, k, Translations[k])
+    end
+    return text
+end
+
+local oldNewIndex
+oldNewIndex =
+    hookmetamethod(
+    game,
+    "__newindex",
+    function(self, key, value)
+        if key == "Text" and type(value) == "string" then
+            value = translateText(value)
+        end
+        return oldNewIndex(self, key, value)
+    end
+)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/ergerg4/bitenights.github.io/refs/heads/main/ringta.lua"))()
