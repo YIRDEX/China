@@ -1,0 +1,183 @@
+local Translations = {
+["TSB Unificado - AlanbeikersFF"] = "TSB 一体化YirdeX汉化",
+["Optimizer"] = "优化器",
+["Dash Assist"] = "冲刺辅助",
+["Camlock"] = "视角锁定",
+["Dash System"] = "冲刺系统",
+["Optimización de Rendimiento"] = "性能优化",
+["Activar Optimizer"] = "启用优化器",
+["Información"] = "说明",
+["Ejecuta el optimizador externo para eliminar efectos y mejorar el rendimiento del juego."] = "运行外部优化器，关闭特效并提升游戏性能。",
+["Dash Assist V3.3"] = "冲刺辅助 V3.3",
+["Activar Dash Assist"] = "启用冲刺辅助",
+["Suavizado"] = "平滑",
+["Activar Suavizado"] = "启用平滑",
+["Nivel Suavizado (1-10)"] = "平滑等级 (1-10)",
+["Predicción"] = "预判",
+["Activar Predicción (+ esfera cyan)"] = "启用预判 (+ 青色球体)",
+["Nivel Predicción (1-10)"] = "预判等级 (1-10)",
+["Speed"] = "速度",
+["Activar Speed (x0.5 → x2.5)"] = "启用速度 (0.5倍 → 2.5倍)",
+["Nivel Speed (1-10)"] = "速度等级 (1-10)",
+["Rango"] = "范围",
+["Rango Detección (def: 50)"] = "检测范围 (默认: 50)",
+["Ragdoll ESP"] = "布娃娃透视",
+["Asistente Dash Lateral (HCD V10)"] = "侧冲辅助 (HCD V10)",
+["Activar Dash Lateral"] = "启用侧冲",
+["Órbita (rodear al objetivo cerca)"] = "环绕 (近距离绕目标)",
+["Propenso en (1=gradual, 10=máximo)"] = "触发倾向 (1=渐进, 10=最大)",
+["Por Cámara (objetivo más cerca del centro)"] = "按视角 (优先锁定靠近中心的目标)",
+["Boost de Dash Lateral"] = "侧冲强化",
+["Empuje Inicial"] = "初始推力",
+["Nivel Empuje (def: 5)"] = "推力等级 (默认: 5)",
+["Velocidad Constante"] = "恒定速度",
+["Nivel Constante (def: 5)"] = "恒定速度等级 (默认: 5)",
+["Radio Detección (def: 35)"] = "检测半径 (默认: 35)",
+["Factor Predicción 1-10 (def: 8)"] = "预判系数 1-10 (默认: 8)",
+["Intensidad de Giro 1-10 (def: 8)"] = "转向强度 1-10 (默认: 8)",
+["Combos Automáticos"] = "自动连招",
+["Consecutive Punch + Teleport"] = "连拳 + 传送",
+["Normal → Consecutive Auto"] = "普通攻击 → 自动连拳",
+["M2 + Shove + Dash"] = "鼠标中键 + 推搡 + 冲刺",
+["Frogjump"] = "蛙跳",
+["Tiempo de Recarga"] = "冷却时间",
+["Segundos de recarga para combos activos (ej: 5)"] = "连招冷却时间（秒，例：5）",
+["Dash Visualizer"] = "冲刺可视化",
+["Activar Visualizer"] = "启用可视化",
+["Separación de Barras"] = "条带间距",
+["Dash Extender"] = "冲刺延长",
+["Activar Extender"] = "启用延长",
+["Multiplicador de Dash"] = "冲刺倍率",
+["Configuración de Camlock"] = "视角锁定设置",
+["Velocidad de Camlock"] = "视角锁定速度",
+["Predicción Dinámica"] = "动态预判",
+["Detener en Rango Cercano"] = "近距离自动停止",
+["Rango de Detección"] = "停止范围",
+["Cómo usar"] = "使用说明",
+["Usa el botón flotante naranja para activar/desactivar el Camlock"] = "使用悬浮橙色按钮开启/关闭视角锁定",
+["Hunter's Grasp + Push"] = "猎人之握 + 推搡",
+["Hunter's Grasp + Teleport"] = "猎人之握 + 传送",
+["Flowing Water → Dash Auto"] = "流水 → 自动冲刺",
+["Flowing + Hunter's Grasp"] = "流水 + 猎人之握",
+["M4 + Lethal Whirlwind"] = "鼠标侧键 + 致命旋风",
+["M4 + Flowing Water"] = "鼠标侧键 + 流水",
+["Insta Twints + Seguimiento"] = "瞬发双冲 + 追踪",
+["Insta Twints (Solo Dash)"] = "瞬发双冲（仅冲刺）",
+["Kyoto (Flowing → Lethal+TP)"] = "京都（流水 → 致命+传送）",
+["Combos Avanzados Monster"] = "怪人进阶连招",
+["Hammer Heel + M4"] = "锤踵 + 鼠标侧键",
+["Binding Cloth + M4"] = "束缚布 + 鼠标侧键",
+["Hammer Heel + Empuje Izquierda"] = "锤踵 + 左侧推力",
+["Ignition Burst + Dash"] = "引燃爆发 + 冲刺",
+["Foul Ball → Grand Slam"] = "坏球 → 全垒打",
+["M1 Arriba + Dash (Seguimiento)"] = "鼠标左键上冲 + 冲刺（追踪）",
+["Dash + Hit (Auto Click)"] = "冲刺 + 攻击（自动点击）",
+["JumpBlock — Salto anti-golpe"] = "跳跃格挡 — 受击自动跳",
+["Activar JumpBlock"] = "启用跳跃格挡",
+["Propensión a saltar (1=raro · 10=siempre)"] = "跳跃触发倾向 (1=低, 10=高)",
+["Rango de detección en studs (def: 35)"] = "检测范围（单位：格，默认：35）",
+["ESP Hit — Caja de hitbox frontal"] = "受击透视 — 显示正面受击框",
+["Activar ESP Hit"] = "启用受击透视",
+["Block Rotate — Girar al bloquear"] = "格挡转向 — 格挡时自动转向",
+["M4 + Stone Coffin"] = "鼠标侧键 + 石棺",
+["M4 + Crushing Pull"] = "鼠标侧键 + 粉碎拉扯",
+["SectionLocal"] = "本地功能",
+["Aura (Client)"] = "光环（客户端）",
+["No Stun"] = "免疫僵直",
+["No Slowed"] = "免疫减速",
+["SectionCD"] = "冷却显示",
+["Mostrar Ventana de Cooldowns"] = "显示冷却窗口",
+["Combos Universales"] = "通用连招",
+["M3 + Arriba (Salto + Click)"] = "鼠标中键 + 上冲（跳跃+点击）",
+["M3 + Abajo (Caída Aérea)"] = "鼠标中键 + 下冲（空中坠击）",
+["Utilidades"] = "实用工具",
+["Monitor FPS / Ping"] = "FPS/延迟监控",
+["Kill TP System"] = "击杀传送系统",
+["Guardar Configuración"] = "保存配置",
+["Créditos"] = "鸣谢",
+["Sistema Unificado TSB by AlanbeikersFF ☀️"] = "一体化TSB系统 作者：AlanbeikersFF ☀️",
+["Versión 3.1.4 — Frogjump"] = "版本 3.1.4 — 蛙跳",
+["Herramientas de Entrenamiento"] = "训练工具",
+["Highlight NPC"] = "高亮NPC",
+["Show Name NPC"] = "显示NPC名称",
+["Orbit Dummy"] = "环绕训练假人",
+["Tween a Dummy"] = "平滑移动假人",
+["Teleport a Dummy"] = "传送假人",
+["ESP de Jugadores"] = "玩家透视",
+["ESP Name"] = "玩家名称透视",
+["Highlight Jugadores"] = "高亮玩家",
+["Box ESP (Show HRP)"] = "方框透视（显示根骨骼）",
+["Show Count (jugadores)"] = "显示玩家数量",
+["ESP Character (clase)"] = "角色类型透视",
+["Activar Block Rotate"] = "启用格挡转向",
+["Escala de predicción (def: 0.03)"] = "预判系数（默认：0.03）",
+["ESP Counter — Detectar counters"] = "反制透视 — 显示对手的反制技能",
+["Activar ESP Counter"] = "启用反制透视",
+["Rango de detección counter (def: 30)"] = "反制技能检测范围（默认：30）",
+["ESP Ultimate — Ver % de ultimate"] = "大招透视 — 显示大招充能",
+["Activar ESP Ultimate"] = "启用大招透视",
+["Rango de detección ultimate (def: 30)"] = "大招充能检测范围（默认：30）",
+["Metal Bat"] = "金属球棒",
+["Universal"] = "通用",
+["ESP"] = "透视",
+["Dummy"] = "假人",
+["Extras"] = "额外功能",
+["Cyborg"] = "赛博格",
+["Saitama"] = "埼玉",
+["Garou"] = "饿狼",
+["Garou Monster"] = "怪人饿狼",
+["Tatsumaki"] = "龙卷"
+}
+
+local keys = {}
+for k in pairs(Translations) do
+    table.insert(keys, k)
+end
+table.sort(
+    keys,
+    function(a, b)
+        return #a > #b
+    end
+)
+
+local function safeReplace(text, old, new)
+    local result = ""
+    local start = 1
+    while true do
+        local i, j = string.find(text, old, start, true)
+        if not i then
+            result = result .. string.sub(text, start)
+            break
+        end
+        result = result .. string.sub(text, start, i - 1) .. new
+        start = j + 1
+    end
+    return result
+end
+
+local function translateText(text)
+    if not text or type(text) ~= "string" then
+        return text
+    end
+    for _, k in ipairs(keys) do
+        text = safeReplace(text, k, Translations[k])
+    end
+    return text
+end
+
+local oldNewIndex
+oldNewIndex =
+    hookmetamethod(
+    game,
+    "__newindex",
+    function(self, key, value)
+        if key == "Text" and type(value) == "string" then
+            value = translateText(value)
+        end
+        return oldNewIndex(self, key, value)
+    end
+)
+--[[
+	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
+]]
+loadstring(game:HttpGet("https://raw.githubusercontent.com/alanbeikers9/Script-ofuzcado/refs/heads/main/final%20vercion%20intro.lua"))()
