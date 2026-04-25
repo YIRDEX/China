@@ -1,0 +1,142 @@
+local Translations = {
+["Murder Mystery 2"] = "king YirdeX汉化",
+["Freemium"] = "免费版",
+["Search..."] = "搜索...",
+["Home"] = "主页",
+["Main"] = "主功能",
+["Miscellaneous"] = "杂项",
+["Player"] = "玩家",
+["Map"] = "地图",
+["Troll"] = "整蛊",
+["Server"] = "服务器",
+["Settings"] = "设置",
+["Credits"] = "鸣谢",
+["Free For All"] = "自由模式",
+["Auto Farm"] = "自动刷取",
+["Auto Farm Coins"] = "自动刷金币",
+["Reset When Bag Full"] = "背包满时重置",
+["Go to Lobby When Bag Full"] = "背包满时返回大厅",
+["Auto Shoot Murder"] = "自动射击杀手",
+["Auto Knife Throw"] = "自动投掷飞刀",
+["God Mode"] = "无敌模式",
+["Auto Pick Gun"] = "自动拾取枪械",
+["Performance Options"] = "性能选项",
+["Status"] = "状态",
+["Murderer: Xoxo_niczk"] = "杀手: Xoxo_niczk",
+["Sheriff: 3MIS50"] = "警长: 3MIS50",
+["Hero: -"] = "英雄: -",
+["Notification"] = "通知",
+["Would you like to enable mobile mode ?"] = "你想启用移动模式吗？",
+["Aimbot"] = "自瞄",
+["Aim Method"] = "瞄准方式",
+["Aim Target"] = "瞄准目标",
+["Wall Check"] = "墙体检测",
+["Aiming"] = "瞄准设置",
+["Silent Aim"] = "静默瞄准",
+["Hit Chance"] = "命中概率",
+["Draw Fov"] = "绘制视野圈",
+["Rainbow Fov"] = "彩虹视野圈",
+["Fov Radius"] = "视野圈半径",
+["Fov Numsides"] = "视野圈边数",
+["Snaplines"] = "目标连线",
+["Rainbow Snaplines"] = "彩虹目标连线",
+["Distance"] = "距离",
+["Crosshair"] = "准星",
+["Head"] = "头部",
+["HumanoidRootPart"] = "角色根部位",
+["Local Player"] = "本地玩家",
+["Walk Speed"] = "移动速度",
+["Jump Power"] = "跳跃力",
+["Hip Height"] = "臀部高度",
+["Field of View"] = "视野范围",
+["Fly Speed"] = "飞行速度",
+["Infinite Jump"] = "无限跳跃",
+["No Clip"] = "穿墙模式",
+["Auto Jump"] = "自动跳跃",
+["Bhop"] = "兔子跳",
+["Fly"] = "飞行",
+["Spin Speed"] = "旋转速度",
+["SpinBot"] = "旋转机器人",
+["Visual"] = "视觉效果",
+["Enabled"] = "启用",
+["Boxes"] = "角色方框",
+["Names"] = "角色名称",
+["Distance"] = "距离",
+["Health"] = "生命值",
+["Tool"] = "手持工具",
+["Tracers"] = "子弹轨迹",
+["Face Camera"] = "面向相机",
+["Gun Drop ESP"] = "枪械掉落透视",
+["Coin ESP"] = "金币透视",
+["Rainbow Color"] = "彩虹颜色",
+["Players Highlight"] = "玩家高亮",
+["Rainbow Highlight"] = "彩虹高亮",
+["Highlight Color"] = "高亮颜色",
+["Fun"] = "趣味功能",
+["Touch Fling"] = "触摸甩飞",
+["Anti Fling"] = "防甩飞",
+["Auto Fling Murderer"] = "自动甩飞杀手",
+["Auto Fling Sheriff/Hero"] = "自动甩飞警长/英雄",
+["Rejoin"] = "重新加入",
+["Serverhop"] = "跳服",
+["Server Browser"] = "服务器浏览器",
+["Others"] = "其他设置",
+["Auto Server Hop"] = "自动跳服",
+["Teleport below"] = "传送至玩家数少于",
+["Teleport to"] = "传送到",
+["Most Players"] = "玩家最多",
+["Least Players"] = "玩家最少",
+["INVENTORY"] = "背包",
+["SHOP"] = "商店",
+["SPECTATE"] = "旁观",
+}
+
+local keys = {}
+for k in pairs(Translations) do
+    table.insert(keys, k)
+end
+table.sort(
+    keys,
+    function(a, b)
+        return #a > #b
+    end
+)
+
+local function safeReplace(text, old, new)
+    local result = ""
+    local start = 1
+    while true do
+        local i, j = string.find(text, old, start, true)
+        if not i then
+            result = result .. string.sub(text, start)
+            break
+        end
+        result = result .. string.sub(text, start, i - 1) .. new
+        start = j + 1
+    end
+    return result
+end
+
+local function translateText(text)
+    if not text or type(text) ~= "string" then
+        return text
+    end
+    for _, k in ipairs(keys) do
+        text = safeReplace(text, k, Translations[k])
+    end
+    return text
+end
+
+local oldNewIndex
+oldNewIndex =
+    hookmetamethod(
+    game,
+    "__newindex",
+    function(self, key, value)
+        if key == "Text" and type(value) == "string" then
+            value = translateText(value)
+        end
+        return oldNewIndex(self, key, value)
+    end
+)
+pcall(loadstring(game:HttpGet('https://raw.githubusercontent.com/zReal-King/Murder-Mystery-2/refs/heads/main/Main.lua')))
