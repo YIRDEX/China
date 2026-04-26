@@ -1,0 +1,134 @@
+local Translations = {
+["Combat UI - Waspire"] = "战斗UI - Waspire",
+["The Strongest Battlegrounds"] = "<font color='#33FFEE'>Y</font><font color='#33EEFF'>i</font><font color='#33DDFF'>r</font><font color='#33CCFF'>d</font><font color='#33BBFF'>e</font><font color='#33AAFF'>X</font><font color='#3399FF'>汉</font><font color='#3388FF'>化</font>",
+["v1.0"] = "版本1.0",
+["Working!"] = "运行中!",
+["Info"] = "信息",
+["Home"] = "主页",
+["Credits"] = "鸣谢",
+["Combat"] = "战斗",
+["Camlock"] = "视角锁定",
+["ESP"] = "透视",
+["Utility"] = "实用工具",
+["Settings"] = "设置",
+["Others"] = "其他",
+["Auto Block System"] = "自动格挡系统",
+["Automatic defense against enemy attacks"] = "自动防御敌人的攻击",
+["Auto Block"] = "自动格挡",
+["Automatically blocks incoming attacks"] = "自动格挡 incoming 攻击",
+["M1 After Block"] = "格挡后自动攻击",
+["Automatically attack after blocking a close range move"] = "格挡近战攻击后自动攻击",
+["Detection Ranges"] = "检测范围",
+["Configure auto block detection distances"] = "配置自动格挡的检测距离",
+["Close Range Distance"] = "近战检测距离",
+["Distance for close range moves (studs)"] = "近战攻击的检测距离(单位:stud)",
+["Long Range Distance"] = "远程检测距离",
+["Distance for long range moves (studs)"] = "远程攻击的检测距离(单位:stud)",
+["M1 After Block Range"] = "格挡后攻击距离",
+["Maximum distance to M1 after blocking (studs)"] = "格挡后自动攻击的最大距离(单位:stud)",
+["Camlock System"] = "视角锁定系统",
+["Automatically lock camera to nearest enemy"] = "自动将视角锁定到最近的敌人",
+["Camlock (PC)"] = "视角锁定(PC)",
+["Enable camera lock to nearest enemy for PC users"] = "为PC用户启用视角锁定最近敌人",
+["Camlock Keybind"] = "视角锁定快捷键",
+["Key to toggle camlock on/off"] = "开启/关闭视角锁定的按键",
+["Mobile Camlock Button"] = "移动端视角锁定按钮",
+["Show mobile button for camlock control (Mobile users)"] = "为移动端用户显示视角锁定控制按钮",
+["Target Info Display"] = "目标信息显示",
+["Show target info (HP, Distance) when camlocked"] = "视角锁定时显示目标信息(血量、距离)",
+["Camlock Notifications"] = "视角锁定通知",
+["Show notifications when camlock is toggled"] = "视角锁定开关时显示通知",
+["Camlock Smoothness"] = "视角锁定平滑度",
+["Camera smoothness (Lower = Snappier, Higher = Smoother)"] = "视角平滑度(数值越低越灵敏，越高越平滑)",
+["Block Aim System"] = "格挡瞄准系统",
+["Automatically aim at enemies while blocking"] = "格挡时自动瞄准敌人",
+["Block Aim"] = "格挡瞄准",
+["Camlocks nearest player when you're blocking"] = "格挡时自动锁定最近的玩家",
+["Block Aim Smoothness"] = "格挡瞄准平滑度",
+["Camera smoothness when blocking (Lower = Snappier)"] = "格挡时视角平滑度(数值越低越灵敏)",
+["Settings Management"] = "设置管理",
+["Save and load your settings"] = "保存和加载你的设置",
+["Save Configuration"] = "保存配置",
+["Save current settings to file"] = "将当前设置保存到文件",
+["Load Defaults"] = "恢复默认设置",
+["Reset all settings to default values"] = "将所有设置重置为默认值",
+["ESP Systems"] = "透视系统",
+["Visual indicators utility"] = "视觉指示器工具",
+["Counter ESP"] = "反击透视",
+["Highlights enemies when they use counter."] = "敌人使用反击时高亮显示",
+["Ping Display ESP"] = "延迟显示透视",
+["Shows player ping above their heads."] = "在玩家头顶显示延迟",
+["High Ping Warning"] = "高延迟警告",
+["Shows warning when ping is too high (105+ ms)"] = "延迟过高(105ms以上)时显示警告",
+["Opponent Block ESP"] = "对手格挡透视",
+["Shows shield icon (🛡️) when enemies block"] = "敌人格挡时显示盾牌图标",
+["Death Counter ESP"] = "必杀技透视",
+["Shows enemy skill indicators above their heads"] = "在敌人头顶显示技能指示器",
+["💥 = Death Counter"] = "💥 = 必杀技",
+["⭐ = Ultimate"] = "⭐ = 大招",
+["Auto Toxic System"] = "自动嘲讽系统",
+["Automatically send messages when you get a kill"] = "击杀时自动发送消息",
+["Auto Toxic"] = "自动嘲讽",
+["Enable automatic toxic messages on kill"] = "启用击杀自动嘲讽消息",
+["Toxic Message"] = "嘲讽消息",
+["Message to send when you get a kill"] = "击杀时发送的消息",
+["Repeat Count"] = "重复次数",
+["How many times to send the message"] = "消息发送次数",
+["Cooldown (seconds)"] = "冷却时间(秒)",
+["Time between repeated messages"] = "重复消息的间隔时间",
+["正常穿孔"] = "Normal Pierce",
+["连续击打"] = "Combo Hit",
+["推动"] = "Push",
+["上部剪切"] = "Upper Slash"
+
+}
+
+local keys = {}
+for k in pairs(Translations) do
+    table.insert(keys, k)
+end
+table.sort(
+    keys,
+    function(a, b)
+        return #a > #b
+    end
+)
+
+local function safeReplace(text, old, new)
+    local result = ""
+    local start = 1
+    while true do
+        local i, j = string.find(text, old, start, true)
+        if not i then
+            result = result .. string.sub(text, start)
+            break
+        end
+        result = result .. string.sub(text, start, i - 1) .. new
+        start = j + 1
+    end
+    return result
+end
+
+local function translateText(text)
+    if not text or type(text) ~= "string" then
+        return text
+    end
+    for _, k in ipairs(keys) do
+        text = safeReplace(text, k, Translations[k])
+    end
+    return text
+end
+
+local oldNewIndex
+oldNewIndex =
+    hookmetamethod(
+    game,
+    "__newindex",
+    function(self, key, value)
+        if key == "Text" and type(value) == "string" then
+            value = translateText(value)
+        end
+        return oldNewIndex(self, key, value)
+    end
+)
+loadstring(game:HttpGet("https://api.getpolsec.com/scripts/hosted/7bad5e3679f40a89db9300800355a40cd92b70f3ca4c354ffe0e52444c6341fb.lua"))()
