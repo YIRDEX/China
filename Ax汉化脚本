@@ -1,12 +1,13 @@
-do
-    local Translations = {
-        ["Toggle"]="打开脚本",
+local RunScriptFirst = false
+
+local Translations = {
+        ["Toggle"]="开关",
         ["Games"]="游戏",
         ["Combat"]="攻击",
         ["Miscs"]="杂项",
         ["Players"]="玩家",
         ["Settings"]="设置",
-        ["Red Light, Green Light"]="红灯绿灯",
+        ["Red Light, Green Light"]="木头人",
         ["Auto Stop"]="自动停止",
         ["Disable Injury"]="移除受伤状态",
         ["Finish RLGL"]="传送终点",
@@ -29,7 +30,7 @@ do
         ["Show Staircases (Brown)"]="透视楼梯(棕)",
         ["Show Spikes (Black)"]="透视尖刺陷阱(黑)",
         ["Pickup Keys"]="自动捡钥匙",
-        ["Auto Escape"]="自捡钥匙",
+        ["Auto Escape"]="自捡钥匙2",
         ["Auto Dodge"]="自动闪避",
         ["Infinite Stamina"]="无限耐力",
         ["Fast Sprint"]="解锁快速冲刺",
@@ -243,7 +244,7 @@ do
         ["Show Only My Team"]="仅显示自己的队伍",
         ["Show Only Enemy Team"]="仅显示敌方队伍",
         ["Trail"]="跟踪",
-        ["Ink Game | by AlexScriptX"]="Ink Game | by AlexScriptX by<font color='#33FFEE'>Y</font><font color='#33EEFF'>i</font><font color='#33DDFF'>r</font><font color='#33CCFF'>d</font><font color='#33BBFF'>e</font><font color='#33AAFF'>X</font><font color='#3399FF'>汉</font><font color='#3388FF'>化</font>",
+        ["Ink Game | by AlexScriptX"]="ink Game | by Alex CN:<font color=\"#7FC8F0\">Y</font><font color=\"#74C0EB\">F</font><font color=\"#69B8E6\">T</font><font color=\"#5EB0E1\">X</font>",
         ["Manual"]="有失误",
         ["Perfect"]="完美",
         ["Keep Playing"]="继续游戏",
@@ -491,11 +492,11 @@ do
         ["Hug it Out"]="拥抱和解",
         ["HugitOut_INTERNAL"]="拥抱和解-内部",
         ["I Am Atomic"]="席德核弹",
-        ["IVE PLAYED THESE GAMES BEFO"]="我玩过这些游戏（未完）",
+        ["IVE PLAYED THESE GAMES BEFO"]="我玩过这些游戏",
         ["I'm Burning!"]="我着火了！",
         ["Ice Slide"]="冰滑",
         ["Enter value"]="输入数值",
-        ["Amalgamation"]="ks秋辞 有芙同享汉化",
+        ["Amalgamation"]="融合体",
         ["Aura Farmer"]="灵气收集者",
         ["Austin"]="奥斯汀",
         ["Bay Harbor Butcher"]="港湾屠夫",
@@ -556,7 +557,7 @@ do
         ["Wellington"]="惠灵顿",
         ["Zeus"]="宙斯",
         ["flying fishs banana 93"]="飞鱼香蕉93",
-        ["watch out for the road orbs"]="ks秋辞 有芙同享",
+        ["watch out for the road orbs"]="小心路上的球能量球",
         ["Teleport Target Mode"]="传送目标模式",
         ["Face Target"]="朝向目标",
         ["ESP Mode"]="透视模式",
@@ -645,6 +646,7 @@ do
         ["Faster Sprint"]="速度",
         ["Enter value (1-6)"]="输入数值（1-6）(改了之后不会给你冲刺)",
         ["Dash Cooldown"]="冲刺冷却",
+        ["Loader | AX-SCRIPTS"]="AX-SCRIPTS | by Alex 汉化者:YirdeX",
         ["Auto-load"]="自动加载（加载出来不是汉化）",
         ["Box Type"] = "方框样式",
         ["Dynamic Box Sizing"] = "动态方框大小",
@@ -716,117 +718,81 @@ do
         ["Highlight"] = "高亮",
         ["Chams"] = "透视颜色",
         ["Anti Injury"] = "移除受伤"
-    }
+}
+local function translateText(text)
+    if not text or type(text) ~= "string" then return text end
+    if Translations[text] then return Translations[text] end
+    for en, cn in pairs(Translations) do
+        if text:find(en) then return text:gsub(en, cn) end
+    end
+    return text
+end
 
-    local function translateText(text)
-        if not text or type(text) ~= "string" then return text end
-        
-        if Translations[text] then
-            return Translations[text]
-        end
-        
-        for en, cn in pairs(Translations) do
-            if text:find(en) then
-                return text:gsub(en, cn)
+local function translateAllElements()
+    local function translateGui(gui)
+        for _, element in ipairs(gui:GetDescendants()) do
+            if element:IsA("TextLabel") or element:IsA("TextButton") or element:IsA("TextBox") then
+                local currentText = element.Text
+                if currentText and currentText ~= "" then
+                    local translatedText = translateText(currentText)
+                    if translatedText ~= currentText then
+                        element.Text = translatedText
+                    end
+                end
             end
         end
-        
-        return text
     end
+    
+    pcall(translateGui, game:GetService("CoreGui"))
+end
 
-    local function setupTranslationEngine()
-        local success, err = pcall(function()
-            local oldIndex = getrawmetatable(game).__newindex
-            setreadonly(getrawmetatable(game), false)
-            
-            getrawmetatable(game).__newindex = newcclosure(function(t, k, v)
-                if (t:IsA("TextLabel") or t:IsA("TextButton") or t:IsA("TextBox")) and k == "Text" then
-                    v = translateText(tostring(v))
-                end
-                return oldIndex(t, k, v)
-            end)
-            
-            setreadonly(getrawmetatable(game), true)
-        end)
-        
-        if not success then
-            warn("元表劫持失败:", err)
-           
-            local translated = {}
-            local function scanAndTranslate()
-                for _, gui in ipairs(game:GetService("CoreGui"):GetDescendants()) do
-                    if (gui:IsA("TextLabel") or gui:IsA("TextButton") or gui:IsA("TextBox")) and not translated[gui] then
-                        pcall(function()
-                            local text = gui.Text
-                            if text and text ~= "" then
-                                local translatedText = translateText(text)
-                                if translatedText ~= text then
-                                    gui.Text = translatedText
-                                    translated[gui] = true
-                                end
-                            end
-                        end)
+local function setupListener()
+    local function connectToGui(gui)
+        gui.DescendantAdded:Connect(function(descendant)
+            if descendant:IsA("TextLabel") or descendant:IsA("TextButton") or descendant:IsA("TextBox") then
+                local currentText = descendant.Text
+                if currentText and currentText ~= "" then
+                    local translatedText = translateText(currentText)
+                    if translatedText ~= currentText then
+                        descendant.Text = translatedText
                     end
                 end
                 
-                local player = game:GetService("Players").LocalPlayer
-                if player and player:FindFirstChild("PlayerGui") then
-                    for _, gui in ipairs(player.PlayerGui:GetDescendants()) do
-                        if (gui:IsA("TextLabel") or gui:IsA("TextButton") or gui:IsA("TextBox")) and not translated[gui] then
-                            pcall(function()
-                                local text = gui.Text
-                                if text and text ~= "" then
-                                    local translatedText = translateText(text)
-                                    if translatedText ~= text then
-                                        gui.Text = translatedText
-                                        translated[gui] = true
-                                    end
-                                end
-                            end)
+                descendant:GetPropertyChangedSignal("Text"):Connect(function()
+                    local newText = descendant.Text
+                    if newText and newText ~= "" then
+                        local translatedText = translateText(newText)
+                        if translatedText ~= newText then
+                            descendant.Text = translatedText
                         end
-                    end
-                end
-            end
-            
-            local function setupDescendantListener(parent)
-                parent.DescendantAdded:Connect(function(descendant)
-                    if descendant:IsA("TextLabel") or descendant:IsA("TextButton") or descendant:IsA("TextBox") then
-                        task.wait(0.1)
-                        pcall(function()
-                            local text = descendant.Text
-                            if text and text ~= "" then
-                                local translatedText = translateText(text)
-                                if translatedText ~= text then
-                                    descendant.Text = translatedText
-                                end
-                            end
-                        end)
                     end
                 end)
             end
-            
-            pcall(setupDescendantListener, game:GetService("CoreGui"))
-            local player = game:GetService("Players").LocalPlayer
-            if player and player:FindFirstChild("PlayerGui") then
-                pcall(setupDescendantListener, player.PlayerGui)
-            end
-            
-            while true do
-                scanAndTranslate()
-                task.wait(3)
-            end
-        end
+        end)
     end
+    
+    pcall(connectToGui, game:GetService("CoreGui"))
+end
 
-    task.wait(2)
-    setupTranslationEngine()
+local function startTranslation()
+    translateAllElements()
+    setupListener()
+end
 
+local function loadScript()
     local success, err = pcall(function()
-loadstring(game:HttpGet("https://officialaxscripts.vercel.app/scripts/AX-Loader.lua"))()
-
+        loadstring(game:HttpGet("https://officialaxscripts.vercel.app/scripts/AX-Loader.lua"))()
     end)
 
     if not success then
         warn("加载失败:", err)
     end
+end
+
+if RunScriptFirst then
+    loadScript()
+    startTranslation()
+else
+    startTranslation()
+    loadScript()
 end
