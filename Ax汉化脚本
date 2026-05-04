@@ -1,7 +1,7 @@
 local RunScriptFirst = false
 
 local Translations = {
-        ["Toggle"]="开关",
+        ["Toggle"]="打开脚本",
         ["Games"]="游戏",
         ["Combat"]="攻击",
         ["Miscs"]="杂项",
@@ -244,7 +244,7 @@ local Translations = {
         ["Show Only My Team"]="仅显示自己的队伍",
         ["Show Only Enemy Team"]="仅显示敌方队伍",
         ["Trail"]="跟踪",
-        ["Ink Game | by AlexScriptX"]="ink Game | by Alex CN:<font color=\"#7FC8F0\">Y</font><font color=\"#74C0EB\">F</font><font color=\"#69B8E6\">T</font><font color=\"#5EB0E1\">X</font>",
+        ["Ink Game | by AlexScriptX"]="ink Game | by Alex 汉化者:YirdeX",
         ["Manual"]="有失误",
         ["Perfect"]="完美",
         ["Keep Playing"]="继续游戏",
@@ -641,7 +641,7 @@ local Translations = {
         ["Enter value (1-6)"]="输入数值（1-6）(改了之后不会给你冲刺)",
         ["Dash Cooldown"]="冲刺冷却",
         ["Loader | AX-SCRIPTS"]="AX-SCRIPTS | by Alex 汉化者:YirdeX",
-        ["Auto-load"]="自动加载（加载出来不是汉化）",
+        ["Auto-load"]="自动加载（不推荐开启）",
         ["Box Type"] = "方框样式",
         ["Dynamic Box Sizing"] = "动态方框大小",
         ["Follow Mode"] = "跟踪模式",
