@@ -1,0 +1,139 @@
+local RunScriptFirst = false
+
+local Translations = {
+["Achaotic"] = "混沌",
+["Blade Ball V1.267"] = "<font color='#33FFEE'>Y</font><font color='#33EEFF'>i</font><font color='#33DDFF'>r</font><font color='#33CCFF'>d</font><font color='#33BBFF'>e</font><font color='#33AAFF'>X</font><font color='#3399FF'>汉</font><font color='#3388FF'>化</font>",
+["General"] = "通用",
+["Combat"] = "战斗",
+["Visuals"] = "视觉",
+["Miscellaneous"] = "杂项",
+["Exclusive"] = "专属",
+["Settings"] = "设置",
+["Search"] = "搜索",
+["Auto Parry"] = "自动格挡",
+["Enabled"] = "启用",
+["Accuracy"] = "准确率",
+["Keybind"] = "按键绑定",
+["Animation Fix"] = "动画修复",
+["Anti Curve"] = "反曲线",
+["Infinity Detection"] = "无限检测",
+["Death Slash Detection"] = "死亡斩击检测",
+["Time Hole Detection"] = "时空裂隙检测",
+["Lobby Auto Parry"] = "大厅自动格挡",
+["Auto Spam Parry [BETA]"] = "自动连点格挡 [测试版]",
+["Detection Mode"] = "检测模式",
+["Manual Spam Parry"] = "手动连点格挡",
+["Active"] = "激活",
+["UI"] = "界面",
+["Pause during dead"] = "死亡时暂停",
+["Trigger Bot"] = "触发机器人",
+["Visualiser"] = "可视化",
+["Effects"] = "特效",
+["Hit Effect"] = "击中特效",
+["Spamming"] = "连点",
+["Mode"] = "模式",
+["Max Speed"] = "最大速度",
+["Fast Ball Protection"] = "快速球保护",
+["Reset After Parry"] = "格挡后重置",
+["Loop Speed"] = "循环速度",
+["Parry System"] = "格挡系统",
+["Method"] = "方式",
+["Hash Check"] = "哈希检测",
+["Curve Direction"] = "曲线方向",
+["Animation Disable"] = "动画禁用",
+["Disable Parry Animation"] = "禁用格挡动画",
+["Disable Grab Animation"] = "禁用抓取动画",
+["Immortality"] = "无敌",
+["Radius"] = "半径",
+["Height"] = "高度",
+["Force"] = "力度",
+["Optimization"] = "优化",
+["No Render"] = "无渲染",
+["Ball Stats"] = "球数据",
+["Skin Changer [BETA]"] = "皮肤修改器 [测试版]",
+["Change Model"] = "修改模型",
+["Model"] = "模型",
+["Change Animations"] = "修改动画",
+["Animation"] = "动画",
+["Change FX"] = "修改特效",
+["FX"] = "特效",
+["Max Rate"] = "最大帧率",
+["Spam FE"] = "连点FE"
+}
+local function translateText(text)
+    if not text or type(text) ~= "string" then return text end
+    if Translations[text] then return Translations[text] end
+    for en, cn in pairs(Translations) do
+        if text:find(en) then return text:gsub(en, cn) end
+    end
+    return text
+end
+
+local function translateAllElements()
+    local function translateGui(gui)
+        for _, element in ipairs(gui:GetDescendants()) do
+            if element:IsA("TextLabel") or element:IsA("TextButton") or element:IsA("TextBox") then
+                local currentText = element.Text
+                if currentText and currentText ~= "" then
+                    local translatedText = translateText(currentText)
+                    if translatedText ~= currentText then
+                        element.Text = translatedText
+                    end
+                end
+            end
+        end
+    end
+    
+    pcall(translateGui, game:GetService("CoreGui"))
+end
+
+local function setupListener()
+    local function connectToGui(gui)
+        gui.DescendantAdded:Connect(function(descendant)
+            if descendant:IsA("TextLabel") or descendant:IsA("TextButton") or descendant:IsA("TextBox") then
+                local currentText = descendant.Text
+                if currentText and currentText ~= "" then
+                    local translatedText = translateText(currentText)
+                    if translatedText ~= currentText then
+                        descendant.Text = translatedText
+                    end
+                end
+                
+                descendant:GetPropertyChangedSignal("Text"):Connect(function()
+                    local newText = descendant.Text
+                    if newText and newText ~= "" then
+                        local translatedText = translateText(newText)
+                        if translatedText ~= newText then
+                            descendant.Text = translatedText
+                        end
+                    end
+                end)
+            end
+        end)
+    end
+    
+    pcall(connectToGui, game:GetService("CoreGui"))
+end
+
+local function startTranslation()
+    translateAllElements()
+    setupListener()
+end
+
+local function loadScript()
+    local success, err = pcall(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/eIysiadev/release/refs/heads/main/bladeware.lua"))()
+    end)
+
+    if not success then
+        warn("加载失败:", err)
+    end
+end
+
+if RunScriptFirst then
+    loadScript()
+    startTranslation()
+else
+    startTranslation()
+    loadScript()
+end
