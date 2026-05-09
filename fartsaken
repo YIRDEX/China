@@ -1,1 +1,1 @@
-        loadstring(game:HttpGet("https://gist.githubusercontent.com/YIRDEX/bfe65faebcaa556acf67770b3a3260fd/raw/16d208d531bdc0c41fa92c6e7bf7578b8be2eccf/fartsaken"))()
+        loadstring(game:HttpGet("https://gist.githubusercontent.com/YIRDEX/bfe65faebcaa556acf67770b3a3260fd/raw/0880c4b43d2ed04c28d54beaf811f26b316a512f/fartsaken"))()
