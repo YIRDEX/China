@@ -1,6 +1,9 @@
 local RunScriptFirst = false
 
 local Translations = {
+["Autoblock"] = "自动格挡",
+["Autoblock Sound Events"] = "自动格挡声音触发",
+["Choose which sound events should trigger autoblock"] = "选择可触发自动格挡的声音事件",
 ["Terms"] = "条款",
 ["Liability & Hold Harmless Agreement"] = "责任与免责协议",
 ["Everything is provided strictly AS---IS. By executing this, you accept 100% of the risk. We hold ZERO liability for any consequences, including game bans, account terminations, hardware bans, or legal action."] = "所有内容均按“现状”提供。执行本程序即表示您承担100%的风险。我们对任何后果（包括游戏封禁、账号终止、硬件封禁或法律诉讼）概不负责。",
